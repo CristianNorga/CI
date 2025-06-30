@@ -23,4 +23,12 @@ for script in "${SCRIPTS[@]}"; do
   fi
 done
 
+echo "🛡️ Aplicando permisos de ejecución a scripts del CI..."
+
+if command -v makeci &>/dev/null; then
+  makeci setup-permissions
+else
+  echo "⚠️ Alias 'makeci' no disponible. Ejecuta manualmente: chmod +x para los scripts"
+fi
+
 echo "🎉 Entorno CI configurado exitosamente."

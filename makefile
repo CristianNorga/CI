@@ -1,17 +1,24 @@
-setup:
+setup-bootstrap:
 	bash setup/bootstrap.sh
 
-gpg:
+setup-gpg:
 	bash setup/setup-gpg-ci.sh
 
-docker:
+setup-docker:
 	bash setup/install-docker.sh
 
-trivy:
+setup-trivy:
 	bash setup/install-trivy.sh
 
-node:
+setup-nvm:
 	bash setup/install-nvm.sh
 
-git:
+setup-git:
 	bash setup/setup-git.sh
+
+setup-permissions:
+	find setup/ -type f -name "*.sh" -exec chmod +x {} \;
+	find util/ -type f -name "*.sh" -exec chmod +x {} \;
+
+util-git-restore-tags:
+	bash util/git/restore-tags.sh
