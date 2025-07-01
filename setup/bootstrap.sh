@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# Obtiene el directorio donde se encuentra este script
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
 echo "🚀 Iniciando configuración completa del entorno CI..."
 
 SCRIPTS=(
@@ -12,16 +15,17 @@ SCRIPTS=(
   "setup-git.sh"
 )
 
-for script in "${SCRIPTS[@]}"; do
-  if [ -f "./$script" ]; then
-    echo "🔧 Ejecutando $script..."
-    bash "./$script"
-    echo
-  else
-    echo "❌ Script $script no encontrado"
-    exit 1
-  fi
-done
+# for script in "${SCRIPTS[@]}"; do
+#   echo "🔍 Verificando existencia de $script..."
+#   if [ -f "$SCRIPT_DIR/$script" ]; then
+#     echo "🔧 Ejecutando $script..."
+#     bash "$SCRIPT_DIR/$script"
+#     echo
+#   else
+#     echo "❌ Script $script no encontrado en $SCRIPT_DIR"
+#     exit 1
+#   fi
+# done
 
 echo "🛡️ Aplicando permisos de ejecución a scripts del CI..."
 
@@ -29,6 +33,5 @@ if command -v makeci &>/dev/null; then
   makeci setup-permissions
 else
   echo "⚠️ Alias 'makeci' no disponible. Ejecuta manualmente: chmod +x para los scripts"
+  cd "../" || make "setup-permissions"
 fi
-
-echo "🎉 Entorno CI configurado exitosamente."

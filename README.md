@@ -1,3 +1,14 @@
+# 🚀 Configuración de CI con GitHub Actions y SSH Key
+
+### 🛠️ Configuración de GitHub Actions
+### 🛠️ Configuración de Entorno (maquina, etc)
+
+```bash
+sudo install -y make
+```
+
+
+
 ###🧠 Tip opcional: Alias para más comodidad
 Puedes añadir a tu ~/.bashrc o ~/.zshrc:
 
