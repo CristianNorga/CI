@@ -1,24 +1,26 @@
+PATHCI := ~/personal/laboratory/CI
+
 setup-bootstrap:
-	bash setup/bootstrap.sh
+	bash $(PATHCI)/setup/bootstrap.sh
 
 setup-gpg:
-	bash setup/setup-gpg-ci.sh
+	bash $(PATHCI)/setup/setup-gpg-ci.sh
 
 setup-docker:
-	bash setup/install-docker.sh
+	bash $(PATHCI)/setup/install-docker.sh
 
 setup-trivy:
-	bash setup/install-trivy.sh
+	bash $(PATHCI)/setup/install-trivy.sh
 
 setup-nvm:
-	bash setup/install-nvm.sh
+	bash $(PATHCI)/setup/install-nvm.sh
 
 setup-git:
-	bash setup/setup-git.sh
+	bash $(PATHCI)/setup/setup-git.sh
 
 setup-permissions:
-	find setup/ -type f -name "*.sh" -exec chmod +x {} \;
-	find util/ -type f -name "*.sh" -exec chmod +x {} \;
+	find $(PATHCI)/setup/ -type f -name "*.sh" -exec chmod +x {} \;
+	find $(PATHCI)/util/git -type f -name "*.sh" -exec chmod +x {} \;
 
 util-git-restore-tags:
 	bash util/git/restore-tags.sh
