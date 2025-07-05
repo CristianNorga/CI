@@ -6,6 +6,9 @@
 
 1. **Docker:** `https://docs.docker.com/desktop/setup/install/linux/ubuntu/`
 
+2. **KVM:** (habilitar virtualización en BIOS/UEFI)
+ `https://docs.docker.com/desktop/setup/install/linux/#kvm-virtualization-support`
+
 ```bash
 sudo install -y make
 ```
