@@ -1,6 +1,10 @@
-# 🚀 Configuración de CI con GitHub Actions y SSH Key
+# 🚀 Configuración de CI con GitHub Actions, Docker y NitroJs
 
-### 🛠️ Configuración de Entorno (maquina, etc)
+## 🛠️ Configuración de Entorno (maquina, etc)
+
+### Instalar dependencias necesarias
+
+1. **Docker:** `https://docs.docker.com/desktop/setup/install/linux/ubuntu/`
 
 ```bash
 sudo install -y make
@@ -57,6 +61,15 @@ runner:
   post_job: /opt/github-runner/hooks/post-job.sh
 ```
 En esos scripts puedes, por ejemplo, revocar sudoers temporales o chequear UID/GID.
+
+5. Agregar el usuario al grupo docker
+
+sudo usermod -aG docker $(whoami)
+newgrp docker
+
+Luego reinicia el runner o la terminal para que los cambios surtan efecto.
+
+⚠️ Esta opción es conveniente, pero ten en cuenta que da acceso completo al demonio de Docker, lo cual tiene implicaciones de seguridad.
 
 ##### Ejemplo: instalar y aislar un runner
 1. Crear usuario sin sudo y home dedicado
