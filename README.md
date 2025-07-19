@@ -9,6 +9,10 @@
 2. **KVM:** (habilitar virtualización en BIOS/UEFI)
  `https://docs.docker.com/desktop/setup/install/linux/#kvm-virtualization-support`
 
+3. **minikube:** `https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download`
+
+
+
 ```bash
 sudo install -y make
 ```
